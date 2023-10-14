@@ -18,7 +18,7 @@ export default function Card(props) {
                 <img src="./images/star.png" className="card--star" />
                 <span>{card.stats.rating}</span>
                 <span className="gray">({card.stats.reviewCount}) • </span>
-                <span className="gray">{card.location}</span>
+                <span className="gray">` {card.location}`</span>
             </div>
             <p>{card.title}</p>
             <p><span className="bold">From ${card.price}</span> / person</p>
