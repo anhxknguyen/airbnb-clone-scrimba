@@ -1,26 +1,29 @@
-import { useState } from 'react'
-import Navbar from './Components/Navbar'
-import './styles/App.css'
-import Hero from './Components/Hero'
-import Card from './Components/Card'
-import Katie from './images/katie-zaferes.png'
+import React from "react"
+import Navbar from "./components/Navbar"
+import Hero from "./components/Hero"
+import Card from "./components/Card"
+import "./styles/App.css"
+import data from "./data"
 
-function App() {
 
-  return (
-    <div>
-      <Navbar />
-      <Hero />
-      <Card 
-        image={Katie}
-        rating="5.0"
-        reviewCount={6}
-        country="USA"
-        title="Life Lessons with Katie Zafares" 
-        price={136}
-      />
-    </div>
-  )
+export default function App() {
+    const allCards = data.map(card => {
+        return (
+            <Card 
+                img={card.coverImg}
+                rating={card.stats.rating}
+                reviewCount={card.stats.reviewCount}
+                location={card.location}
+                title={card.title}
+                price={card.price}
+            />
+        )
+    })
+    return (
+        <div>
+            <Navbar />
+            <Hero />
+            {allCards}
+        </div>
+    )
 }
-
-export default App
